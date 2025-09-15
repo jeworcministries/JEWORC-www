@@ -1,1 +1,0 @@
-# JEWORC-Ministries

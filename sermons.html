@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sermons & Teachings | JEWORC - Jesus' Worship Centre Ministries</title>
+    <meta name="description" content="Access biblical teachings and sermons from JEWORC Ministries. Grow in your faith with messages from Pastor Ibrahim and other ministry leaders.">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Sermons Page Specific Styles */
+        .sermons-hero {
+            background: linear-gradient(rgba(0, 80, 80, 0.7), rgba(0, 80, 80, 0.7)), url('images/sermons/hero-bg.jpg') no-repeat center center/cover;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        
+        .sermons-filter {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-top: -50px;
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .filter-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 0;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #008080;
+        }
+        
+        .form-group select, .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Montserrat', sans-serif;
+            background: #f8f9fa;
+        }
+        
+        .filter-submit {
+            align-self: flex-end;
+        }
+        
+        .filter-submit button {
+            width: 100%;
+            padding: 12px;
+        }
+        
+        .sermons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .sermon-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .sermon-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .sermon-media {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .sermon-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .sermon-card:hover .sermon-media img {
+            transform: scale(1.1);
+        }
+        
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(255,165,0,0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .sermon-card:hover .play-button {
+            opacity: 1;
+        }
+        
+        .sermon-details {
+            padding: 25px;
+        }
+        
+        .sermon-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        .sermon-meta span {
+            display: flex;
+            align-items: center;
+        }
+        
+        .sermon-meta i {
+            margin-right: 5px;
+            color: #008080;
+        }
+        
+        .sermon-details h3 {
+            color: #008080;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            line-height: 1.4;
+        }
+        
+        .sermon-details p {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .sermon-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .sermon-actions a {
+            flex: 1;
+            text-align: center;
+            padding: 8px;
+            font-size: 0.8rem;
+        }
+        
+        .featured-series {
+            background: #f8f9fa;
+            padding: 80px 0;
+        }
+        
+        .series-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-top: 50px;
+        }
+        
+        .series-header {
+            background: linear-gradient(135deg, #008080, #20B2AA);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .series-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .series-header p {
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .series-sermons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 0;
+        }
+        
+        .series-sermon {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            transition: background 0.3s ease;
+        }
+        
+        .series-sermon:last-child {
+            border-bottom: none;
+        }
+        
+        .series-sermon:hover {
+            background: #f8f9fa;
+        }
+        
+        .series-sermon h4 {
+            color: #008080;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .series-sermon-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .series-sermon-meta i {
+            color: #008080;
+            margin-right: 5px;
+        }
+        
+        .series-sermon-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .series-sermon-actions a {
+            font-size: 0.8rem;
+            padding: 5px 10px;
+        }
+        
+        .audio-player-section {
+            background: linear-gradient(135deg, #008080, #20B2AA);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .audio-player-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            color: #333;
+        }
+        
+        .audio-player-header {
+            margin-bottom: 30px;
+        }
+        
+        .audio-player-header h3 {
+            color: #008080;
+            margin-bottom: 10px;
+        }
+        
+        .audio-player {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        
+        .audio-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .audio-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+        
+        @media (max-width: 768px) {
+            .sermons-hero {
+                height: 50vh;
+            }
+            
+            .filter-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .sermons-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .series-sermons {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <svg viewBox="0 0 80 80">
+                <circle cx="40" cy="40" r="32"></circle>
+            </svg>
+        </div>
+        <div class="loader triangle">
+            <svg viewBox="0 0 86 80">
+                <polygon points="43 8 79 72 7 72"></polygon>
+            </svg>
+        </div>
+        <div class="loader">
+            <svg viewBox="0 0 80 80">
+                <rect x="8" y="8" width="64" height="64"></rect>
+            </svg>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <img src="images/logo-jeworc.png" alt="JEWORC Logo">
+                    <span>JEWORC</span>
+                </a>
+                
+                <div class="nav-menu">
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                        <li class="nav-item"><a href="leadership.html" class="nav-link">Leadership</a></li>
+                        <li class="nav-item dropdown">
+                            <a href="ministries.html" class="nav-link active">Ministries <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="missions.html">Missions & Outreach</a></li>
+                                <li><a href="sermons.html" class="active">Sermons & Teachings</a></li>
+                                <li><a href="blog.html">Blog & Devotions</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a href="events.html" class="nav-link">Events</a></li>
+                        <li class="nav-item"><a href="donate.html" class="nav-link donate-btn">Give</a></li>
+                    </ul>
+                </div>
+                
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sermons Hero Section -->
+    <section class="sermons-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Sermons & Teachings</h1>
+                <p>Biblical messages to nourish your spirit and strengthen your faith</p>
+                <div class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span>/</span>
+                    <a href="ministries.html">Ministries</a>
+                    <span>/</span>
+                    <a href="sermons.html" class="current">Sermons & Teachings</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sermons Filter -->
+    <section class="section">
+        <div class="container">
+            <div class="sermons-filter">
+                <form class="filter-form">
+                    <div class="form-group">
+                        <label for="series">Series</label>
+                        <select id="series">
+                            <option value="">All Series</option>
+                            <option value="foundations">Foundations of Faith</option>
+                            <option value="psalms">Journey Through Psalms</option>
+                            <option value="relationships">Godly Relationships</option>
+                            <option value="prayer">Power of Prayer</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="speaker">Speaker</label>
+                        <select id="speaker">
+                            <option value="">All Speakers</option>
+                            <option value="ibrahim">Pr. Ibrahim Kitamuriho</option>
+                            <option value="hellen">Hellen Nuwasasira</option>
+                            <option value="james">James Musinguzi</option>
+                            <option value="juliet">Juliet Kobusingye</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="topic">Topic</label>
+                        <select id="topic">
+                            <option value="">All Topics</option>
+                            <option value="salvation">Salvation</option>
+                            <option value="healing">Healing</option>
+                            <option value="faith">Faith</option>
+                            <option value="holiness">Holiness</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <input type="month" id="date">
+                    </div>
+                    <div class="form-group filter-submit">
+                        <button type="submit" class="btn btn-primary">
+                            <span>Filter Sermons</span>
+                            <svg width="13px" height="10px" viewBox="0 0 13 10">
+                                <path d="M1,5 L11,5"></path>
+                                <polyline points="8 1 12 5 8 9"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="sermons-grid">
+                <!-- Sermon 1 -->
+                <div class="sermon-card">
+                    <div class="sermon-media">
+                        <img src="images/sermons/sermon1.jpg" alt="The Power of the Gospel">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="sermon-details">
+                        <div class="sermon-meta">
+                            <span><i class="fas fa-user"></i> Pr. Ibrahim</span>
+                            <span><i class="far fa-calendar-alt"></i> Jun 18, 2023</span>
+                        </div>
+                        <h3>The Power of the Gospel</h3>
+                        <p>Exploring how the gospel transforms lives and brings salvation to everyone who believes.</p>
+                        <div class="sermon-actions">
+                            <a href="#" class="btn btn-small">
+                                <i class="fas fa-play"></i> Watch
+                            </a>
+                            <a href="#" class="btn btn-small btn-outline">
+                                <i class="fas fa-download"></i> Download
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sermon 2 -->
+                <div class="sermon-card">
+                    <div class="sermon-media">
+                        <img src="images/sermons/sermon2.jpg" alt="Walking in Faith">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="sermon-details">
+                        <div class="sermon-meta">
+                            <span><i class="fas fa-user"></i> Hellen Nuwasasira</span>
+                            <span><i class="far fa-calendar-alt"></i> Jun 11, 2023</span>
+                        </div>
+                        <h3>Walking in Faith Through Difficult Times</h3>
+                        <p>Practical biblical principles for trusting God when circumstances seem overwhelming.</p>
+                        <div class="sermon-actions">
+                            <a href="#" class="btn btn-small">
+                                <i class="fas fa-play"></i> Watch
+                            </a>
+                            <a href="#" class="btn btn-small btn-outline">
+                                <i class="fas fa-download"></i> Download
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sermon 3 -->
+                <div class="sermon-card">
+                    <div class="sermon-media">
+                        <img src="images/sermons/sermon3.jpg" alt="The Heart of Worship">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="sermon-details">
+                        <div class="sermon-meta">
+                            <span><i class="fas fa-user"></i> Pr. Ibrahim</span>
+                            <span><i class="far fa-calendar-alt"></i> Jun 4, 2023</span>
+                        </div>
+                        <h3>The Heart of True Worship</h3>
+                        <p>Discovering what it means to worship God in spirit and in truth beyond just singing.</p>
+                        <div class="sermon-actions">
+                            <a href="#" class="btn btn-small">
+                                <i class="fas fa-play"></i> Watch
+                            </a>
+                            <a href="#" class="btn btn-small btn-outline">
+                                <i class="fas fa-download"></i> Download
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sermon 4 -->
+                <div class="sermon-card">
+                    <div class="sermon-media">
+                        <img src="images/sermons/sermon4.jpg" alt="Overcoming Fear">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="sermon-details">
+                        <div class="sermon-meta">
+                            <span><i class="fas fa-user"></i> James Musinguzi</span>
+                            <span><i class="far fa-calendar-alt"></i> May 28, 2023</span>
+                        </div>
+                        <h3>Overcoming Fear with Faith</h3>
+                        <p>Biblical strategies to conquer fear and anxiety through God's promises.</p>
+                        <div class="sermon-actions">
+                            <a href="#" class="btn btn-small">
+                                <i class="fas fa-play"></i> Watch
+                            </a>
+                            <a href="#" class="btn btn-small btn-outline">
+                                <i class="fas fa-download"></i> Download
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sermon 5 -->
+                <div class="sermon-card">
+                    <div class="sermon-media">
+                        <img src="images/sermons/sermon5.jpg" alt="The Holy Spirit">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="sermon-details">
+                        <div class="sermon-meta">
+                            <span><i class="fas fa-user"></i> Juliet Kobusingye</span>
+                            <span><i class="far fa-calendar-alt"></i> May 21, 2023</span>
+                        </div>
+                        <h3>The Empowering Presence of the Holy Spirit</h3>
+                        <p>Understanding and experiencing the Holy Spirit's work in a believer's life.</p>
+                        <div class="sermon-actions">
+                            <a href="#" class="btn btn-small">
+                                <i class="fas fa-play"></i> Watch
+                            </a>
+                            <a href="#" class="btn btn-small btn-outline">
+                                <i class="fas fa-download"></i> Download
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sermon 6 -->
+                <div class="sermon-card">
+                    <div class="sermon-media">
+                        <img src="images/sermons/sermon6.jpg" alt="Building Godly Relationships">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="sermon-details">
+                        <div class="sermon-meta">
+                            <span><i class="fas fa-user"></i> Pr. Ibrahim</span>
+                            <span><i class="far fa-calendar-alt"></i> May 14, 2023</span>
+                        </div>
+                        <h3>Building Godly Relationships</h3>
+                        <p>Biblical principles for cultivating healthy, Christ-centered relationships.</p>
+                        <div class="sermon-actions">
+                            <a href="#" class="btn btn-small">
+                                <i class="fas fa-play"></i> Watch
+                            </a>
+                            <a href="#" class="btn btn-small btn-outline">
+                                <i class="fas fa-download"></i> Download
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section-footer">
+                <a href="#" class="btn btn-outline">
+                    <span>Load More Sermons</span>
+                    <svg width="13px" height="10px" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Series Section -->
+    <section class="featured-series">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Teaching Series</span>
+                <h2 class="section-title">Featured Series</h2>
+                <p class="section-subtitle">Dive deeper into God's Word with these teaching series</p>
+            </div>
+            
+            <div class="series-card">
+                <div class="series-header">
+                    <h3>Foundations of Faith</h3>
+                    <p>An 8-part series exploring the core doctrines of Christianity and how to build a strong spiritual foundation.</p>
+                </div>
+                <div class="series-sermons">
+                    <div class="series-sermon">
+                        <h4>1. Salvation Through Christ Alone</h4>
+                        <div class="series-sermon-meta">
+                            <span><i class="far fa-calendar-alt"></i> April 2, 2023</span>
+                            <span><i class="fas fa-clock"></i> 45 min</span>
+                        </div>
+                        <div class="series-sermon-actions">
+                            <a href="#" class="btn btn-small">
+                                <i class="fas fa-play"></i> Watch
+                            </a>
+                            <a href="#" class="btn btn-small btn-outline">
+                                <i class="fas fa-download"></i> Audio
+                            </a>
+                            <a href="#" class="btn btn-small btn-outline">
+                                <i class="fas fa-book-open"></i> Notes
+                            </a>
+                        </div>
+                    </div>
+                    <div class="series-sermon">
+                        <h4>2. The Authority of Scripture</h4>
+                        <div class="series-sermon-meta">
+                            <span><i class="far fa-calendar-alt"></i> April 9, 2023</span>
+                            <span><i class="fas fa-clock"></i> 52 min</span>
+                        </div>
+                        <div class="series-sermon-actions">
+                            <a href="#" class="btn btn-small">
+                                <i class="fas fa-play"></i> Watch
+                            </a>
+                            <a href="#" class="btn btn-small btn-outline">
+                                <i class="fas fa-download"></i> Audio
+                            </a>
+                            <a href="#" class="btn btn-small btn-outline">
+                                <i class="fas fa-book-open"></i> Notes
+                            </a>
+                        </div>
+                    </div>
+                    <div class="series-sermon">
+                        <h4>3. The Trinity: God in Three Persons</h4>
+                        <div class="series-sermon-meta">
+                            <span><i class="far fa-calendar-alt"></i> April 16, 2023</span>
+                            <span><i class="fas fa-clock"></i> 48 min</span>
+                        </div>
+                        <div class="series-sermon-actions">
+                            <a href="#" class="btn btn-small">
+                                <i class="fas fa-play"></i> Watch
+                            </a>
+                            <a href="#" class="btn btn-small btn-outline">
+                                <i class="fas fa-download"></i> Audio
+                            </a>
+                            <a href="#" class="btn btn-small btn-outline">
+                                <i class="fas fa-book-open"></i> Notes
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Audio Player Section -->
+    <section class="audio-player-section">
+        <div class="container">
+            <div class="audio-player-container">
+                <div class="audio-player-header">
+                    <h3>Listen to Our Latest Sermon</h3>
+                    <p>The Power of Prayer in Difficult Times</p>
+                </div>
+                <audio controls class="audio-player">
+                    <source src="audio/sermon-sample.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <div class="audio-info">
+                    <span><i class="fas fa-user"></i> Pr. Ibrahim Kitamuriho</span>
+                    <span><i class="far fa-calendar-alt"></i> June 25, 2023</span>
+                    <span><i class="fas fa-clock"></i> 56 minutes</span>
+                </div>
+                <div class="audio-actions">
+                    <a href="#" class="btn btn-small">
+                        <i class="fas fa-download"></i> Download
+                    </a>
+                    <a href="#" class="btn btn-small btn-outline">
+                        <i class="fas fa-book-open"></i> Sermon Notes
+                    </a>
+                    <a href="#" class="btn btn-small btn-outline">
+                        <i class="fas fa-share-alt"></i> Share
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col footer-about">
+                        <h3>About JEWORC</h3>
+                        <p>Jesus' Worship Centre Ministries is a dynamic, Christ-centered ministry based in Kampala, Uganda, committed to reaching the world with the gospel of Jesus Christ.</p>
+                        <div class="footer-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-col footer-links">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="leadership.html">Our Team</a></li>
+                            <li><a href="ministries.html">Ministries</a></li>
+                            <li><a href="events.html">Events</a></li>
+                            <li><a href="sermons.html">Sermons</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-col footer-contact">
+                        <h3>Contact Us</h3>
+                        <ul>
+                            <li><i class="fas fa-map-marker-alt"></i> Kampala, Uganda</li>
+                            <li><i class="fas fa-phone-alt"></i> +256 758 031071</li>
+                            <li><i class="fas fa-envelope"></i> info@jeworc.org</li>
+                            <li><i class="fab fa-whatsapp"></i> +256 780 423951</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-col footer-service-times">
+                        <h3>Service Times</h3>
+                        <ul>
+                            <li>
+                                <span>Sunday Worship</span>
+                                <span>9:00 AM - 12:00 PM</span>
+                            </li>
+                            <li>
+                                <span>Tuesday Bible Study</span>
+                                <span>5:00 PM - 7:00 PM</span>
+                            </li>
+                            <li>
+                                <span>Friday Prayer</span>
+                                <span>5:00 PM - 7:00 PM</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2023 Jesus' Worship Centre Ministries. All Rights Reserved.</p>
+                    <div class="footer-legal">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Use</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/256758031071" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Filter form submission
+            const filterForm = document.querySelector('.filter-form');
+            if (filterForm) {
+                filterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // Here you would normally filter the sermons
+                    // For demo, we'll just log the values
+                    const series = document.getElementById('series').value;
+                    const speaker = document.getElementById('speaker').value;
+                    const topic = document.getElementById('topic').value;
+                    const date = document.getElementById('date').value;
+                    
+                    console.log('Filtering by:', { series, speaker, topic, date });
+                    alert('Filter functionality would be implemented here with real data');
+                });
+            }
+            
+            // Audio player enhancement
+            const audioPlayer = document.querySelector('.audio-player');
+            if (audioPlayer) {
+                // You could add custom controls or analytics here
+                audioPlayer.addEventListener('play', function() {
+                    console.log('Sermon playback started');
+                });
+                
+                audioPlayer.addEventListener('ended', function() {
+                    console.log('Sermon playback completed');
+                });
+            }
+            
+            // Sermon card hover effects
+            const sermonCards = document.querySelectorAll('.sermon-card');
+            sermonCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px)';
+                    this.style.boxShadow = '0 15px 30px rgba(0,0,0,0.2)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+                });
+            });
+            
+            // Load more button functionality
+            const loadMoreBtn = document.querySelector('.section-footer a');
+            if (loadMoreBtn) {
+                loadMoreBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    // This would normally load more sermons via AJAX
+                    alert('Load more functionality would be implemented here');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

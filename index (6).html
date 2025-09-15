@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Primary Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jesus' Worship Centre Ministries (JEWORC) - A vibrant Christ-centered ministry in Kampala, Uganda reaching the world with the gospel of Jesus Christ.">
+    <meta name="keywords" content="JEWORC, Uganda church, Kampala ministries, Christian worship, evangelism Uganda">
+    <meta name="author" content="JEWORC Ministries">
+    
+    <!-- Open Graph / Facebook Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jeworc.org/">
+    <meta property="og:title" content="JEWORC - Jesus' Worship Centre Ministries | Kampala, Uganda">
+    <meta property="og:description" content="A vibrant Christ-centered ministry in Kampala, Uganda reaching the world with the gospel of Jesus Christ.">
+    <meta property="og:image" content="https://jeworc.org/images/social-preview.jpg">
+    
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="JEWORC - Jesus' Worship Centre Ministries | Kampala, Uganda">
+    <meta name="twitter:description" content="A vibrant Christ-centered ministry in Kampala, Uganda reaching the world with the gospel of Jesus Christ.">
+    <meta name="twitter:image" content="https://jeworc.org/images/social-preview.jpg">
+    
+    <title>JEWORC - Jesus' Worship Centre Ministries | Kampala, Uganda</title>
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#008080">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="videos/header-bg.mp4" as="video" type="video/mp4">
+    <link rel="preload" href="fonts/custom-font.woff2" as="font" type="font/woff2" crossorigin>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <svg viewBox="0 0 80 80">
+                <circle cx="40" cy="40" r="32"></circle>
+            </svg>
+        </div>
+        <div class="loader triangle">
+            <svg viewBox="0 0 86 80">
+                <polygon points="43 8 79 72 7 72"></polygon>
+            </svg>
+        </div>
+        <div class="loader">
+            <svg viewBox="0 0 80 80">
+                <rect x="8" y="8" width="64" height="64"></rect>
+            </svg>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <img src="images/logo-jeworc.jpg" alt="JEWORC Logo" width="40" height="40">
+                    <span>JEWORC Ministries</span>
+                </a>
+                
+                <div class="nav-menu">
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="index.html" class="nav-link active">Home</a></li>
+                        <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                        <li class="nav-item"><a href="leadership.html" class="nav-link">Leadership</a></li>
+                        <li class="nav-item dropdown">
+                            <a href="missions.html" class="nav-link">Ministries <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="missions.html">Missions & Outreach</a></li>
+                                <li><a href="sermons.html">Sermons & Teachings</a></li>
+                                <li><a href="blog.html">Blog & Devotions</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a href="events.html" class="nav-link">Events</a></li>
+                        <li class="nav-item"><a href="donate.html" class="nav-link donate-btn">Give</a></li>
+                    </ul>
+                </div>
+                
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section with Video Background -->
+    <section class="hero">
+        <div class="video-background">
+            <video autoplay muted loop id="hero-video" playsinline>
+                <source src="videos/header-bg.mp4" type="video/mp4">
+                <!-- Fallback image if video doesn't load -->
+                <img src="images/backgrounds/hero-fallback.jpeg" alt="JEWORC Worship Service">
+            </video>
+            <div class="video-overlay"></div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="container">
+                <h1 class="hero-title">JESUS WORSHIP CENTER MINISTRIES</h1>
+                <p class="hero-subtitle">Transforming lives and communities in Uganda and beyond</p>
+                <div class="hero-buttons">
+                    <a href="events.html" class="btn btn-primary">
+                        <span>Join Our Next Service</span>
+                        <svg width="13px" height="10px" viewBox="0 0 13 10">
+                            <path d="M1,5 L11,5"></path>
+                            <polyline points="8 1 12 5 8 9"></polyline>
+                        </svg>
+                    </a>
+                    <a href="donate.html" class="btn btn-secondary">
+                        <span>Support Our Mission</span>
+                        <svg width="13px" height="10px" viewBox="0 0 13 10">
+                            <path d="M1,5 L11,5"></path>
+                            <polyline points="8 1 12 5 8 9"></polyline>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="scroll-down">
+            <a href="#welcome" class="scroll-link" aria-label="Scroll down">
+                <span></span>
+                <span></span>
+                <span></span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Welcome Section -->
+    <section id="welcome" class="section welcome-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">About Us</span>
+                <h2 class="section-title">Welcome to JEWORC</h2>
+                <p class="section-subtitle">Jesus' Worship Centre Ministries</p>
+            </div>
+            
+            <div class="welcome-content">
+                <div class="welcome-text">
+                    <div class="mission-vision">
+                        <div class="mv-card">
+                            <div class="mv-icon">
+                                <i class="fas fa-bullseye"></i>
+                            </div>
+                            <h3>Our Mission</h3>
+                            <p>"Reaching the world with the gospel of Jesus Christ, giving every person an opportunity to know and accept the Good News." <span class="scripture">Acts 10:38</span></p>
+                        </div>
+                        
+                        <div class="mv-card">
+                            <div class="mv-icon">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <h3>Our Vision</h3>
+                            <p>"Transforming lives and communities through the preaching of the gospel of Jesus Christ." <span class="scripture">Colossians 3:14</span></p>
+                        </div>
+                    </div>
+                    
+                    <div class="welcome-buttons">
+                        <a href="about.html" class="btn btn-outline">
+                            <span>Learn More About Us</span>
+                            <svg width="13px" height="10px" viewBox="0 0 13 10">
+                                <path d="M1,5 L11,5"></path>
+                                <polyline points="8 1 12 5 8 9"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="welcome-image">
+                    <div class="image-frame">
+                        <img src="images/welcome-image.jpeg" alt="JEWORC Worship Team" width="600" height="400" loading="lazy">
+                        <div class="frame-overlay"></div>
+                        <div class="image-shape"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values Section -->
+    <section class="section values-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Foundation</span>
+                <h2 class="section-title">Core Values</h2>
+                <p class="section-subtitle">The pillars that guide everything we do</p>
+            </div>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-cross"></i>
+                    </div>
+                    <h3>Christ-Centeredness</h3>
+                    <p>Keeping Jesus at the heart of everything we do.</p>
+                    <div class="value-number">01</div>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Outreach & Evangelism</h3>
+                    <p>Taking the message of salvation to the unreached.</p>
+                    <div class="value-number">02</div>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>Spiritual Growth</h3>
+                    <p>Encouraging discipleship and deeper relationship with God.</p>
+                    <div class="value-number">03</div>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Love & Compassion</h3>
+                    <p>Extending God's love to the hurting and broken.</p>
+                    <div class="value-number">04</div>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-hands"></i>
+                    </div>
+                    <h3>Servanthood</h3>
+                    <p>Serving others in humility and faithfulness.</p>
+                    <div class="value-number">05</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ministries Highlights Section -->
+    <section class="section ministries-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">What We Do</span>
+                <h2 class="section-title">Our Ministries</h2>
+                <p class="section-subtitle">Impacting lives through various outreaches</p>
+            </div>
+            
+            <div class="ministries-grid">
+                <div class="ministry-card">
+                    <div class="ministry-image">
+                        <img src="images/gallery/evangelism.jpeg" alt="Evangelism Crusade" width="400" height="250" loading="lazy">
+                        <div class="image-overlay"></div>
+                    </div>
+                    <div class="ministry-content">
+                        <h3>Evangelism Crusades</h3>
+                        <p>Large-scale gospel campaigns reaching thousands with the message of salvation.</p>
+                        <a href="missions.html" class="btn btn-small">
+                            <span>Learn More</span>
+                            <svg width="13px" height="10px" viewBox="0 0 13 10">
+                                <path d="M1,5 L11,5"></path>
+                                <polyline points="8 1 12 5 8 9"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="ministry-card">
+                    <div class="ministry-image">
+                        <img src="images/gallery/orphans.jpeg" alt="Orphan Care" width="400" height="250" loading="lazy">
+                        <div class="image-overlay"></div>
+                    </div>
+                    <div class="ministry-content">
+                        <h3>Orphan Care</h3>
+                        <p>Supporting vulnerable children with education, food, and spiritual guidance.</p>
+                        <a href="missions.html" class="btn btn-small">
+                            <span>Learn More</span>
+                            <svg width="13px" height="10px" viewBox="0 0 13 10">
+                                <path d="M1,5 L11,5"></path>
+                                <polyline points="8 1 12 5 8 9"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="ministry-card">
+                    <div class="ministry-image">
+                        <img src="images/gallery/discipleship.jpeg" alt="Discipleship Program" width="400" height="250" loading="lazy">
+                        <div class="image-overlay"></div>
+                    </div>
+                    <div class="ministry-content">
+                        <h3>Discipleship Training</h3>
+                        <p>Equipping believers to grow in their faith and share the gospel effectively.</p>
+                        <a href="sermons.html" class="btn btn-small">
+                            <span>Learn More</span>
+                            <svg width="13px" height="10px" viewBox="0 0 13 10">
+                                <path d="M1,5 L11,5"></path>
+                                <polyline points="8 1 12 5 8 9"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section-footer">
+                <a href="missions.html" class="btn btn-primary">
+                    <span>View All Ministries</span>
+                    <svg width="13px" height="10px" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming Events Section -->
+    <section class="section events-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Join Us</span>
+                <h2 class="section-title">Upcoming Events</h2>
+                <p class="section-subtitle">Worship, prayer, and fellowship opportunities</p>
+            </div>
+            
+            <div class="events-slider">
+                <div class="event-card">
+                    <div class="event-date">
+                        <span class="date-day">SUN</span>
+                        <span class="date-month">Weekly</span>
+                    </div>
+                    <div class="event-details">
+                        <h3>Sunday Services</h3>
+                        <p class="event-time"><i class="far fa-clock"></i> 9:00 AM - 1:30 PM</p>
+                        <p class="event-location"><i class="fas fa-map-marker-alt"></i> Main Service</p>
+                        <p>Join us for our main worship service with powerful praise, worship and the Word of God with Pastor Ibrahim.</p>
+                        <a href="#" class="btn btn-small">
+                            <span>More Details</span>
+                            <svg width="13px" height="10px" viewBox="0 0 13 10">
+                                <path d="M1,5 L11,5"></path>
+                                <polyline points="8 1 12 5 8 9"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="event-card">
+                    <div class="event-date">
+                        <span class="date-day">TUE</span>
+                        <span class="date-month">Weekly</span>
+                    </div>
+                    <div class="event-details">
+                        <h3>Midweek Service - Prayer Altar</h3>
+                        <p class="event-time"><i class="far fa-clock"></i> 4:00 PM - 7:00 PM</p>
+                        <p class="event-location"><i class="fas fa-map-marker-alt"></i> Prayer Altar</p>
+                        <p>A time of deep intercession and prayer for personal needs, community, and nations.</p>
+                        <a href="#" class="btn btn-small">
+                            <span>More Details</span>
+                            <svg width="13px" height="10px" viewBox="0 0 13 10">
+                                <path d="M1,5 L11,5"></path>
+                                <polyline points="8 1 12 5 8 9"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="event-card">
+                    <div class="event-date">
+                        <span class="date-day">THU</span>
+                        <span class="date-month">Weekly</span>
+                    </div>
+                    <div class="event-details">
+                        <h3>Midweek Service - Deliverance</h3>
+                        <p class="event-time"><i class="far fa-clock"></i> 4:00 PM - 8:00 PM</p>
+                        <p class="event-location"><i class="fas fa-map-marker-alt"></i> Deliverance Service</p>
+                        <p>Experience God's liberating power in this service dedicated to deliverance and spiritual freedom.</p>
+                        <a href="#" class="btn btn-small">
+                            <span>More Details</span>
+                            <svg width="13px" height="10px" viewBox="0 0 13 10">
+                                <path d="M1,5 L11,5"></path>
+                                <polyline points="8 1 12 5 8 9"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="event-card">
+                    <div class="event-date">
+                        <span class="date-day">FRI</span>
+                        <span class="date-month">Weekly</span>
+                    </div>
+                    <div class="event-details">
+                        <h3>Midweek Service - Bible Study</h3>
+                        <p class="event-time"><i class="far fa-clock"></i> 4:00 PM - 6:00 PM</p>
+                        <p class="event-location"><i class="fas fa-map-marker-alt"></i> Bible Study</p>
+                        <p>Deep dive into God's Word with practical teaching and discussion for spiritual growth.</p>
+                        <a href="#" class="btn btn-small">
+                            <span>More Details</span>
+                            <svg width="13px" height="10px" viewBox="0 0 13 10">
+                                <path d="M1,5 L11,5"></path>
+                                <polyline points="8 1 12 5 8 9"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section-footer">
+                <a href="events.html" class="btn btn-outline">
+                    <span>View All Events</span>
+                    <svg width="13px" height="10px" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sermon Highlight Section -->
+    <section class="section sermon-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Latest Message</span>
+                <h2 class="section-title">Featured Sermon</h2>
+                <p class="section-subtitle">Be transformed by the renewing of your mind</p>
+            </div>
+            
+            <div class="sermon-highlight">
+                <div class="sermon-video">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/example" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" title="Featured Sermon Video"></iframe>
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="sermon-details">
+                    <h3>The Power of the Gospel</h3>
+                    <p class="sermon-meta">Pastor Ibrahim Kitamuriho | June 18, 2023 | Romans 1:16</p>
+                    <p class="sermon-description">In this powerful message, Pastor Ibrahim explores the transformative power of the gospel and how it brings salvation to everyone who believes. Discover how the gospel is not just the entry point to Christianity but the very power that sustains and transforms believers throughout their journey.</p>
+                    
+                    <div class="sermon-actions">
+                        <a href="#" class="btn btn-small">
+                            <i class="fas fa-download"></i>
+                            <span>Download Audio</span>
+                        </a>
+                        <a href="#" class="btn btn-small">
+                            <i class="fas fa-book-open"></i>
+                            <span>Sermon Notes</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section-footer">
+                <a href="sermons.html" class="btn btn-primary">
+                    <span>More Sermons</span>
+                    <svg width="13px" height="10px" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donation Call-to-Action -->
+    <section class="section donation-cta">
+        <div class="container">
+            <div class="cta-content">
+                <span class="cta-tag">Partner With Us</span>
+                <h2>Support Kingdom Work in Uganda</h2>
+                <p>Your generous giving enables us to reach more souls, support orphans and widows, and expand God's kingdom in Uganda and beyond. Every donation makes an eternal difference.</p>
+                <div class="cta-buttons">
+                    <a href="donate.html" class="btn btn-primary">
+                        <span>Give Online</span>
+                        <svg width="13px" height="10px" viewBox="0 0 13 10">
+                            <path d="M1,5 L11,5"></path>
+                            <polyline points="8 1 12 5 8 9"></polyline>
+                        </svg>
+                    </a>
+                    <a href="missions.html" class="btn btn-outline">
+                        <span>See Our Projects</span>
+                        <svg width="13px" height="10px" viewBox="0 0 13 10">
+                            <path d="M1,5 L11,5"></path>
+                            <polyline points="8 1 12 5 8 9"></polyline>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Highlights Section -->
+    <section class="section blog-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Spiritual Growth</span>
+                <h2 class="section-title">From Our Blog</h2>
+                <p class="section-subtitle">Encouraging words for your spiritual journey</p>
+            </div>
+            
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="images/blog/prayer.jpeg" alt="The Power of Prayer" width="400" height="250" loading="lazy">
+                        <div class="blog-date">
+                            <span>15</span>
+                            <span>JUN</span>
+                        </div>
+                    </div>
+                    <div class="blog-content">
+                        <h3><a href="#">The Power of Persistent Prayer</a></h3>
+                        <p class="blog-meta">By Pastor Ibrahim | Devotional</p>
+                        <p>Discover how consistent prayer can transform your life and circumstances, just as Jesus taught in Luke 18:1-8.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="images/blog/faith.jpeg" alt="Walking by Faith" width="400" height="250" loading="lazy">
+                        <div class="blog-date">
+                            <span>08</span>
+                            <span>JUN</span>
+                        </div>
+                    </div>
+                    <div class="blog-content">
+                        <h3><a href="#">Walking by Faith in Difficult Times</a></h3>
+                        <p class="blog-meta">By Hellen Nuwasasira | Encouragement</p>
+                        <p>Practical biblical principles for trusting God when circumstances seem overwhelming.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="images/blog/community.jpeg" alt="Christian Community" width="400" height="250" loading="lazy">
+                        <div class="blog-date">
+                            <span>01</span>
+                            <span>JUN</span>
+                        </div>
+                    </div>
+                    <div class="blog-content">
+                        <h3><a href="#">The Importance of Christian Community</a></h3>
+                        <p class="blog-meta">By James Musinguzi | Discipleship</p>
+                        <p>Why fellowship with other believers is essential for spiritual growth and encouragement.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+            </div>
+            
+            <div class="section-footer">
+                <a href="blog.html" class="btn btn-outline">
+                    <span>View All Posts</span>
+                    <svg width="13px" height="10px" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Subscription -->
+    <section class="section newsletter-section">
+        <div class="container">
+            <div class="newsletter-box">
+                <div class="newsletter-content">
+                    <h2>Stay Connected</h2>
+                    <p>Subscribe to our newsletter for weekly devotionals, event updates, and ministry news.</p>
+                </div>
+                
+                <form class="newsletter-form" id="newsletter-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required aria-label="Your Name">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" required aria-label="Your Email">
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <span>Subscribe</span>
+                        <svg width="13px" height="10px" viewBox="0 0 13 10">
+                            <path d="M1,5 L11,5"></path>
+                            <polyline points="8 1 12 5 8 9"></polyline>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col footer-about">
+                        <h3>About JEWORC</h3>
+                        <p>Jesus' Worship Centre Ministries is a dynamic, Christ-centered ministry based in Kampala, Uganda, committed to reaching the world with the gospel of Jesus Christ.</p>
+                        <div class="footer-social">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-col footer-links">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="leadership.html">Our Team</a></li>
+                            <li><a href="missions.html">Ministries</a></li>
+                            <li><a href="events.html">Events</a></li>
+                            <li><a href="sermons.html">Sermons</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-col footer-contact">
+                        <h3>Contact Us</h3>
+                        <ul>
+                            <li><i class="fas fa-map-marker-alt"></i> Kampala, Uganda</li>
+                            <li><i class="fas fa-phone-alt"></i> +256 758 031071</li>
+                            <li><i class="fas fa-envelope"></i> ibrahimkitamuriho@gmail.com</li>
+                            <li><i class="fab fa-whatsapp"></i> +256 780 423951</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-col footer-service-times">
+                        <h3>Service Times</h3>
+                        <ul>
+                            <li>
+                                <span>Sunday Worship</span>
+                                <span>9:00 AM - 1:30 PM</span>
+                            </li>
+                            <li>
+                                <span>Tuesday Prayer Altar</span>
+                                <span>4:00 PM - 7:00 PM</span>
+                            </li>
+                            <li>
+                                <span>Thursday Deliverance</span>
+                                <span>4:00 PM - 8:00 PM</span>
+                            </li>
+                            <li>
+                                <span>Friday Bible Study</span>
+                                <span>4:00 PM - 6:00 PM</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <p>&copy; <span id="current-year">2025</span> Jesus' Worship Centre Ministries. All Rights Reserved.</p>
+                    <div class="footer-legal">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Use</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/256758031071" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- JavaScript -->
+    <script src="js/main.js" defer></script>
+    <script src="js/smooth-scroll.js" defer></script>
+</body>
+</html>

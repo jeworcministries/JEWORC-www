@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Primary Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Upcoming events at JEWORC Ministries - Join us for worship services, outreach programs, and special gatherings in Kampala, Uganda.">
+    <meta name="keywords" content="JEWORC events, Uganda church events, Christian gatherings Kampala, worship services Uganda">
+    <meta name="author" content="JEWORC Ministries">
+    
+    <!-- Open Graph / Facebook Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jeworc.org/events.html">
+    <meta property="og:title" content="Upcoming Events | JEWORC Ministries | Kampala, Uganda">
+    <meta property="og:description" content="Join us for transformative worship services, outreach programs, and special gatherings at JEWORC Ministries in Kampala, Uganda.">
+    <meta property="og:image" content="https://jeworc.org/images/events-social-preview.jpg">
+    
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Upcoming Events | JEWORC Ministries | Kampala, Uganda">
+    <meta name="twitter:description" content="Join us for transformative worship services, outreach programs, and special gatherings at JEWORC Ministries in Kampala, Uganda.">
+    <meta name="twitter:image" content="https://jeworc.org/images/events-social-preview.jpg">
+    
+    <title>Upcoming Events | JEWORC Ministries | Kampala, Uganda</title>
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#008080">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="images/backgrounds/events-hero.jpg" as="image">
+    
+    <style>
+        /* Basic styling for the page */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-tag {
+            display: inline-block;
+            background: #008080;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: #222;
+        }
+        
+        .section-subtitle {
+            font-size: 18px;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Event Cards */
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .event-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: flex;
+            transition: transform 0.3s ease;
+        }
+        
+        .event-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .event-date {
+            background: #008080;
+            color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-width: 80px;
+        }
+        
+        .date-day {
+            font-size: 28px;
+            font-weight: 700;
+        }
+        
+        .date-month {
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+        
+        .event-details {
+            padding: 20px;
+            flex: 1;
+        }
+        
+        .event-category {
+            display: inline-block;
+            font-size: 12px;
+            padding: 3px 10px;
+            border-radius: 15px;
+            margin-bottom: 10px;
+        }
+        
+        .event-category.outreach {
+            background: #ffe6cc;
+            color: #cc6600;
+        }
+        
+        .event-category.baptism {
+            background: #ccf2ff;
+            color: #0066cc;
+        }
+        
+        .event-category.women {
+            background: #ffccf2;
+            color: #cc0066;
+        }
+        
+        .event-details h3 {
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+        
+        .event-time, .event-location {
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .event-time i, .event-location i {
+            margin-right: 8px;
+            color: #008080;
+        }
+        
+        .event-details p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .event-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: #008080;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #006666;
+        }
+        
+        .btn-small {
+            padding: 8px 15px;
+            font-size: 14px;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 1px solid #008080;
+            color: #008080;
+        }
+        
+        .btn-outline:hover {
+            background: #008080;
+            color: white;
+        }
+        
+        /* Weekly Schedule */
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .schedule-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .schedule-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .schedule-icon {
+            font-size: 40px;
+            color: #008080;
+            margin-bottom: 20px;
+        }
+        
+        .schedule-card h3 {
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+        
+        .schedule-time {
+            margin-bottom: 15px;
+            color: #008080;
+            font-weight: 500;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #222;
+            color: white;
+        }
+        
+        .footer-main {
+            padding: 60px 0;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        
+        .footer-col h3 {
+            margin-bottom: 20px;
+            font-size: 18px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: #008080;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-col ul li a:hover {
+            color: #008080;
+        }
+        
+        .footer-col p {
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .footer-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #333;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-social a:hover {
+            background: #008080;
+            transform: translateY(-3px);
+        }
+        
+        .footer-service-times ul li {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px dashed #444;
+            padding-bottom: 8px;
+            margin-bottom: 8px;
+        }
+        
+        .footer-bottom {
+            background: #111;
+            padding: 20px 0;
+            text-align: center;
+        }
+        
+        .footer-bottom-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-legal {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .footer-legal a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-legal a:hover {
+            color: #008080;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .footer-bottom-content {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .event-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <svg viewBox="0 0 80 80">
+                <circle cx="40" cy="40" r="32"></circle>
+            </svg>
+        </div>
+        <div class="loader triangle">
+            <svg viewBox="0 0 86 80">
+                <polygon points="43 8 79 72 7 72"></polygon>
+            </svg>
+        </div>
+        <div class="loader">
+            <svg viewBox="0 0 80 80">
+                <rect x="8" y="8" width="64" height="64"></rect>
+            </svg>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <img src="images/logo-jeworc.jpg" alt="JEWORC Logo" width="40" height="40">
+                    <span>JEWORC Ministries</span>
+                </a>
+                
+                <div class="nav-menu">
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                        <li class="nav-item"><a href="leadership.html" class="nav-link">Leadership</a></li>
+                        <li class="nav-item dropdown">
+                            <a href="missions.html" class="nav-link">Ministries <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="missions.html">Missions & Outreach</a></li>
+                                <li><a href="sermons.html">Sermons & Teachings</a></li>
+                                <li><a href="blog.html">Blog & Devotions</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a href="events.html" class="nav-link active">Events</a></li>
+                        <li class="nav-item"><a href="donate.html" class="nav-link donate-btn">Give</a></li>
+                    </ul>
+                </div>
+                
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="events-hero">
+        <div class="hero-background" style="background-image: url('images/backgrounds/events-hero.jpg');">
+            <div class="video-overlay"></div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="container">
+                <h1 class="hero-title">Upcoming Events</h1>
+                <p class="hero-subtitle">Join us for worship, fellowship, and community transformation</p>
+                <div class="hero-buttons">
+                    <a href="#featured-events" class="btn btn-primary">
+                        <span>View Events</span>
+                        <svg width="13px" height="10px" viewBox="0 0 13 10">
+                            <path d="M1,5 L11,5"></path>
+                            <polyline points="8 1 12 5 8 9"></polyline>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="scroll-down">
+            <a href="#featured-events" class="scroll-link" aria-label="Scroll down">
+                <span></span>
+                <span></span>
+                <span></span>
+            </a>
+        </div>
+    </section>
+
+
+        <!-- Featured Events Section -->
+    <section id="featured-events" class="section featured-events-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Special Gatherings</span>
+                <h2 class="section-title">Featured Events</h2>
+                <p class="section-subtitle">Mark your calendar for these impactful gatherings</p>
+            </div>
+            
+            <div class="events-grid">
+                <div class="event-card">
+                    <div class="event-date">
+                        <span class="date-day"></span>
+                        <span class="date-month">Coming Up</span>
+                    </div>
+                    <div class="event-details">
+                        <div class="event-category outreach">Community Outreach</div>
+                        <h3>Community Health & Gospel Outreach</h3>
+                        <p class="event-time"><i class="far fa-clock"></i> Full Day Event</p>
+                        <p class="event-location"><i class="fas fa-map-marker-alt"></i> Various Locations</p>
+                        <p>Join us as we serve our community with free health services and share the transformative message of the Gospel. Volunteers are always welcome to participate in this impactful ministry.</p>
+                        <div class="event-actions">
+                            <a href="#" class="btn btn-small">
+                                <span>Learn More</span>
+                                <svg width="13px" height="10px" viewBox="0 0 13 10">
+                                    <path d="M1,5 L11,5"></path>
+                                    <polyline points="8 1 12 5 8 9"></polyline>
+                                </svg>
+                            </a>
+                            <a href="#" class="btn btn-small btn-outline">
+                                <i class="fas fa-calendar-plus"></i>
+                                <span>Get Notified</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="event-card">
+                    <div class="event-date">
+                        <span class="date-day"></span>
+                        <span class="date-month">Coming Up</span>
+                    </div>
+                    <div class="event-details">
+                        <div class="event-category baptism">Baptism Service</div>
+                        <h3>Water Baptism Celebration</h3>
+                        <p class="event-time"><i class="far fa-clock"></i> During Sunday Service</p>
+                        <p class="event-location"><i class="fas fa-map-marker-alt"></i> JEWORC Church</p>
+                        <p>Celebrate with new believers as they publicly declare their faith through water baptism. This special service is always a powerful time of commitment and spiritual renewal.</p>
+                        <div class="event-actions">
+                            <a href="#" class="btn btn-small">
+                                <span>Express Interest</span>
+                                <svg width="13px" height="10px" viewBox="0 0 13 10">
+                                    <path d="M1,5 L11,5"></path>
+                                    <polyline points="8 1 12 5 8 9"></polyline>
+                                </svg>
+                            </a>
+                            <a href="#" class="btn btn-small btn-outline">
+                                <i class="fas fa-calendar-plus"></i>
+                                <span>Get Notified</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="event-card">
+                    <div class="event-date">
+                        <span class="date-day"></span>
+                        <span class="date-month">Coming Up</span>
+                    </div>
+                    <div class="event-details">
+                        <div class="event-category women">Women's Ministry</div>
+                        <h3>Women's Empowerment Conference</h3>
+                        <p class="event-time"><i class="far fa-clock"></i> Full Day Event</p>
+                        <p class="event-location"><i class="fas fa-map-marker-alt"></i> JEWORC Church</p>
+                        <p>A transformative gathering for women of all ages featuring inspirational speakers, workshops, and fellowship opportunities designed to empower and strengthen spiritual growth.</p>
+                        <div class="event-actions">
+                            <a href="#" class="btn btn-small">
+                                <span>Express Interest</span>
+                                <svg width="13px" height="10px" viewBox="0 0 13 10">
+                                    <path d="M1,5 L11,5"></path>
+                                    <polyline points="8 1 12 5 8 9"></polyline>
+                                </svg>
+                            </a>
+                            <a href="#" class="btn btn-small btn-outline">
+                                <i class="fas fa-calendar-plus"></i>
+                                <span>Get Notified</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+        <!-- Weekly Schedule Section -->
+    <section class="section weekly-schedule-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Regular Programs</span>
+                <h2 class="section-title">Weekly Schedule</h2>
+                <p class="section-subtitle">Our regular worship and spiritual growth opportunities</p>
+            </div>
+            
+            <div class="schedule-grid">
+                <div class="schedule-card">
+                    <div class="schedule-icon">
+                        <i class="fas fa-church"></i>
+                    </div>
+                    <h3>Sunday Service</h3>
+                    <div class="schedule-time">
+                        <i class="far fa-clock"></i> 9:00 AM - 1:30 PM
+                    </div>
+                    <p>Powerful worship and biblical teaching for the whole family with children's church available.</p>
+                </div>
+                
+                <div class="schedule-card">
+                    <div class="schedule-icon">
+                        <i class="fas fa-praying-hands"></i>
+                    </div>
+                    <h3>Tuesday Prayer</h3>
+                    <div class="schedule-time">
+                        <i class="far fa-clock"></i> 4:00 PM - 7:00 PM
+                    </div>
+                    <p>Corporate prayer meeting at the prayer altar for breakthroughs and miracles.</p>
+                </div>
+                
+                <div class="schedule-card">
+                    <div class="schedule-icon">
+                        <i class="fas fa-bible"></i>
+                    </div>
+                    <h3>Deliverance Service</h3>
+                    <div class="schedule-time">
+                        <i class="far fa-clock"></i> Thursday 4:00 PM - 8:00 PM
+                    </div>
+                    <p>Powerful deliverance service for freedom and breakthrough in Christ Jesus.</p>
+                </div>
+                
+                <div class="schedule-card">
+                    <div class="schedule-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Bible Study</h3>
+                    <div class="schedule-time">
+                        <i class="far fa-clock"></i> Friday 4:00 PM - 6:00 PM
+                    </div>
+                    <p>In-depth Bible teaching and discipleship classes for spiritual growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+        <!-- Annual Events Section -->
+    <section class="section annual-events-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Yearly Highlights</span>
+                <h2 class="section-title">Annual Events</h2>
+                <p class="section-subtitle">Mark your calendar for these special yearly gatherings</p>
+            </div>
+            
+            <div class="annual-grid">
+                <div class="annual-card">
+                    <div class="annual-image">
+                        <img src="images/gallery/crusade.jpeg" alt="Annual Gospel Crusade" loading="lazy">
+                        <div class="annual-date">
+                            <span>ANNUALY</span>
+                        </div>
+                    </div>
+                    <div class="annual-content">
+                        <h3>Annual Gospel Crusade</h3>
+                        <p>Multiple nights of powerful worship, teaching, and ministry with a focus on salvation, healing, and deliverance for our community.</p>
+                        <a href="#" class="btn btn-small">
+                            <span>Learn More</span>
+                            <svg width="13px" height="10px" viewBox="0 0 13 10">
+                                <path d="M1,5 L11,5"></path>
+                                <polyline points="8 1 12 5 8 9"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="annual-card">
+                    <div class="annual-image">
+                        <img src="images/gallery/conference.jpg" alt="Leadership Conference" loading="lazy">
+                        <div class="annual-date">
+                            <span>ANNUALLY</span>
+                        </div>
+                    </div>
+                    <div class="annual-content">
+                        <h3>Leadership Conference</h3>
+                        <p>Equipping and empowering church leaders and ministers for effective service in God's kingdom through specialized teaching and practical workshops.</p>
+                        <a href="#" class="btn btn-small">
+                            <span>Learn More</span>
+                            <svg width="13px" height="10px" viewBox="0 0 13 10">
+                                <path d="M1,5 L11,5"></path>
+                                <polyline points="8 1 12 5 8 9"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="annual-card">
+                    <div class="annual-image">
+                        <img src="images/gallery/thanksgiving.jpg" alt="Thanksgiving Service" loading="lazy">
+                        <div class="annual-date">
+                            <span>YEARLY EVENT</span>
+                        </div>
+                    </div>
+                    <div class="annual-content">
+                        <h3>Thanksgiving Celebration</h3>
+                        <p>A special time of corporate gratitude as we reflect on God's faithfulness throughout the year and dedicate our offerings of thanksgiving.</p>
+                        <a href="#" class="btn btn-small">
+                            <span>Learn More</span>
+                            <svg width="13px" height="10px" viewBox="0 0 13 10">
+                                <path d="M1,5 L11,5"></path>
+                                <polyline points="8 1 12 5 8 9"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="section newsletter-section">
+        <div class="container">
+            <div class="newsletter-box">
+                <div class="newsletter-content">
+                    <h2>Stay Updated</h2>
+                    <p>Subscribe to our newsletter for event updates, ministry news, and spiritual encouragement.</p>
+                </div>
+                
+                <form class="newsletter-form" id="events-newsletter-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required aria-label="Your Name">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" required aria-label="Your Email">
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <span>Subscribe</span>
+                        <svg width="13px" height="10px" viewBox="0 0 13 10">
+                            <path d="M1,5 L11,5"></path>
+                            <polyline points="8 1 12 5 8 9"></polyline>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col footer-about">
+                        <h3>About JEWORC</h3>
+                        <p>Jesus' Worship Centre Ministries is a dynamic, Christ-centered ministry based in Kampala, Uganda, committed to reaching the world with the gospel of Jesus Christ.</p>
+                        <div class="footer-social">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-col footer-links">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="leadership.html">Our Team</a></li>
+                            <li><a href="missions.html">Ministries</a></li>
+                            <li><a href="events.html">Events</a></li>
+                            <li><a href="sermons.html">Sermons</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-col footer-contact">
+                        <h3>Contact Us</h3>
+                        <ul>
+                            <li><i class="fas fa-map-marker-alt"></i> Kampala, Uganda</li>
+                            <li><i class="fas fa-phone-alt"></i> +256 758 031071</li>
+                            <li><i class="fas fa-envelope"></i> ibrahimkitamuriho@gmail.com</li>
+                            <li><i class="fab fa-whatsapp"></i> +256 780 423951</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-col footer-service-times">
+                        <h3>Service Times</h3>
+                        <ul>
+                            <li>
+                                <span>Sunday Worship</span>
+                                <span>9:00 AM - 1:30 PM</span>
+                            </li>
+                            <li>
+                                <span>Tuesday Prayer</span>
+                                <span>4:00 PM - 7:00 PM</span>
+                            </li>
+                            <li>
+                                <span>Thursday Deliverance</span>
+                                <span>4:00 PM - 8:00 PM</span>
+                            </li>
+                            <li>
+                                <span>Friday Bible Study</span>
+                                <span>4:00 PM - 6:00 PM</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <p>&copy; <span id="current-year">2023</span> Jesus' Worship Centre Ministries. All Rights Reserved.</p>
+                    <div class="footer-legal">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Use</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/256758031071" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- JavaScript -->
+    <script>
+        // Current year for copyright
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // Simple preloader
+        window.addEventListener('load', function() {
+            document.querySelector('.preloader').style.display = 'none';
+        });
+    </script>
+</body>
+</html>
+
+
+

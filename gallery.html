@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | Jesus' Worship Centre Ministries</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --teal: #008080;
+            --teal-light: #4da6a6;
+            --teal-dark: #006666;
+            --teal-bg: #e6f2f2;
+            --white: #ffffff;
+            --gray: #f5f5f5;
+            --dark: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--gray);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+            color: var(--white);
+            padding: 1.5rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .logo span {
+            color: #ffd700;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background: var(--teal-dark);
+            padding: 1rem 0;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            margin: 0 1.2rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--teal-dark);
+            position: relative;
+        }
+
+        .page-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--teal);
+            margin: 0.5rem auto;
+            border-radius: 2px;
+        }
+
+        .intro-text {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #555;
+            font-size: 1.1rem;
+        }
+
+        /* Gallery Sections */
+        .gallery-section {
+            margin: 3rem 0;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--teal-dark);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--teal);
+            margin: 0.5rem auto;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            background: var(--white);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .media-container {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .media-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover .media-container img {
+            transform: scale(1.05);
+        }
+
+        .media-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--white);
+            font-size: 3rem;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover .play-icon {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .gallery-caption {
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .gallery-caption h3 {
+            color: var(--teal-dark);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .gallery-caption p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Call-to-Action */
+        .cta-section {
+            background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+            padding: 3rem 2rem;
+            text-align: center;
+            margin: 4rem 0;
+            border-radius: 10px;
+            color: var(--white);
+        }
+
+        .cta-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-text {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--white);
+            color: var(--teal-dark);
+            padding: 0.8rem 1.8rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn:hover {
+            background: #f0f0f0;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--teal-dark);
+            color: var(--white);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #ddd;
+            margin-bottom: 0.5rem;
+            display: block;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            color: var(--white);
+            text-decoration: underline;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            color: var(--white);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-3px);
+            color: #ffd700;
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            nav {
+                flex-wrap: wrap;
+            }
+            nav a {
+                margin: 0.5rem;
+            }
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">JEWORC<span>.</span></div>
+        <p>Transforming lives through the Gospel of Jesus Christ</p>
+    </header>
+
+    <nav>
+        <a href="index.html"><i class="fas fa-home"></i> Home</a>
+        <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+        <a href="gallery.html"><i class="fas fa-images"></i> Gallery</a>
+        <a href="sermons.html"><i class="fas fa-church"></i> Sermons</a>
+        <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+        <a href="donate.html"><i class="fas fa-hand-holding-heart"></i> Donate</a>
+    </nav>
+
+    <div class="container">
+        <h1 class="page-title">Ministry Gallery</h1>
+        <p class="intro-text">Witness the power of God through our evangelism, worship, and outreach moments.</p>
+
+        <!-- Photo Gallery -->
+        <div class="gallery-section">
+            <h2 class="section-title">Photo Gallery</h2>
+            <div class="gallery-grid">
+                <!-- Photo 1 -->
+                <div class="gallery-item">
+                    <div class="media-container">
+                        <img src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Evangelism Crusade">
+                    </div>
+                    <div class="gallery-caption">
+                        <h3>Open-Air Crusade</h3>
+                        <p>Kampala, Uganda - 2023</p>
+                    </div>
+                </div>
+                <!-- Photo 2 -->
+                <div class="gallery-item">
+                    <div class="media-container">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Water Baptism">
+                    </div>
+                    <div class="gallery-caption">
+                        <h3>Water Baptism</h3>
+                        <p>New believers in Christ</p>
+                    </div>
+                </div>
+                <!-- Photo 3 -->
+                <div class="gallery-item">
+                    <div class="media-container">
+                        <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Community Outreach">
+                    </div>
+                    <div class="gallery-caption">
+                        <h3>Feeding Program</h3>
+                        <p>Serving the less privileged</p>
+                    </div>
+                </div>
+                <!-- Photo 4 -->
+                <div class="gallery-item">
+                    <div class="media-container">
+                        <img src="https://images.unsplash.com/photo-1542403765-df5388b9a9f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Worship Service">
+                    </div>
+                    <div class="gallery-caption">
+                        <h3>Sunday Worship</h3>
+                        <p>Praise and thanksgiving</p>
+                    </div>
+                </div>
+                <!-- Photo 5 -->
+                <div class="gallery-item">
+                    <div class="media-container">
+                        <img src="https://images.unsplash.com/photo-1523057530100-383d7fbc77a1?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Children's Ministry">
+                    </div>
+                    <div class="gallery-caption">
+                        <h3>Children's Ministry</h3>
+                        <p>Teaching the next generation</p>
+                    </div>
+                </div>
+                <!-- Photo 6 -->
+                <div class="gallery-item">
+                    <div class="media-container">
+                        <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Women's Fellowship">
+                    </div>
+                    <div class="gallery-caption">
+                        <h3>Women's Fellowship</h3>
+                        <p>Prayer and encouragement</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Video Gallery -->
+        <div class="gallery-section">
+            <h2 class="section-title">Video Gallery</h2>
+            <div class="gallery-grid">
+                <!-- Video 1 -->
+                <div class="gallery-item">
+                    <div class="media-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                        <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+                    </div>
+                    <div class="gallery-caption">
+                        <h3>Sermon: The Power of Faith</h3>
+                        <p>Pr. Kitamuriho Ibrahim</p>
+                    </div>
+                </div>
+                <!-- Video 2 -->
+                <div class="gallery-item">
+                    <div class="media-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                        <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+                    </div>
+                    <div class="gallery-caption">
+                        <h3>Crusade Testimonies</h3>
+                        <p>Miracles in Kampala</p>
+                    </div>
+                </div>
+                <!-- Video 3 -->
+                <div class="gallery-item">
+                    <div class="media-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                        <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+                    </div>
+                    <div class="gallery-caption">
+                        <h3>Mission Trip Highlights</h3>
+                        <p>Rural Uganda Outreach</p>
+                    </div>
+                </div>
+                <!-- Video 4 -->
+                <div class="gallery-item">
+                    <div class="media-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                        <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+                    </div>
+                    <div class="gallery-caption">
+                        <h3>Praise & Worship</h3>
+                        <p>Live at JEWORC</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call-to-Action -->
+        <div class="cta-section">
+            <h2 class="cta-title">Join Us in Transforming Lives</h2>
+            <p class="cta-text">Your support helps us reach more souls with the Gospel.</p>
+            <a href="donate.html" class="btn">Donate Now</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About JEWORC</h3>
+                <p>Reaching the world with the Gospel of Jesus Christ.</p>
+                <a href="about.html">Learn More</a>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="sermons.html">Sermons</a>
+                <a href="events.html">Events</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <p>Kampala, Uganda</p>
+                <p>Email: ibrahimkitamuriho@gmail.com</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 Jesus' Worship Centre Ministries. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
